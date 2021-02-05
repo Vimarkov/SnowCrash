@@ -1,0 +1,12 @@
+# We need to search a file who can be exectuted as the user flag00
+
+$> find / -user flag00 2> /tmp/trash
+/usr/sbin/john
+
+$> cat /usr/sbin/john
+cdiiddwpgswtgt
+
+# this output doesn't match as the good password because it's an encoded rot+15
+  string. We can decode it on https://www.dcode.fr/caesar-cipher
+
+- output = nottohardhere

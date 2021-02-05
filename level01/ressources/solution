@@ -1,0 +1,13 @@
+$> cat /etc/passwd
+flag01:42hDRfypTqqnw
+
+# We install john the ripper to decrypt the password.
+  
+$> git clone https://github.com/magnumripper/JohnTheRipper john
+
+$> echo "42hDRfypTqqnw" > passwd
+
+$> john/run/john passwd
+
+$> john/run/john --show passwd
+abcdef

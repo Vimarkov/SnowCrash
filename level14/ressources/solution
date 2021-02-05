@@ -1,0 +1,14 @@
+When we reverse the binary we can see a call to ptrace that block the flow of the program. We just have to set a breakpoint before it and jump after it returns.
+We can also see that the program compare uid value for each flag.
+If we modify the eax value after the getuid call with 3014 (uid of flqg14) the prgram will puts the flag.
+
+(gdb) b main
+(gdb) b * 0x08048982
+(gdb) c
+(gdb) b * 0x080489a8
+(gdb) jump * 0x080489a8
+(gdb) b * 0x08048b02
+(gdb) c
+(gdb) set $eax=3014
+(gdb) c
+

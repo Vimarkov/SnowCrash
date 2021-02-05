@@ -1,0 +1,15 @@
+#install Wireshark or logg in Kali Linux
+
+# Copy level02.pcap
+
+$> scp -P 4242 level02@ip_of_VM:~/level02.pcap .
+
+# Open the file with Wireshark.
+# Right click->follow->TCP stream
+# We can see the password : ft_wandr...NDRelL0L
+# The value of dots is 7f, that represent the del character.
+# We just need to tap the password as it was typed and we obtain ft_waNDReL0L
+
+$> su flag02
+
+$> getflag

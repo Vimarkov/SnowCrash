@@ -1,0 +1,4 @@
+When executing the binary an error message occured.
+If we reverse it with gdb we can see that a cmp function is use.
+We can set the value of $eax at this address with 4242 so it will match the comparaison then run it.
+

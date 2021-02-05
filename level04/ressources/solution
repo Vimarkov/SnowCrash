@@ -1,0 +1,7 @@
+The script is executed on a web server at VM_IP:4747.
+It print the output of the `echo $y 2>&1` command.
+We can send a request and modify the x parameter with the getflag command.
+
+- http://VM_IP:4747?x=`getflag`
+
+
